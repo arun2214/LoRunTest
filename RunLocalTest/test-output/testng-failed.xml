@@ -7,13 +7,14 @@
   <test thread-count="2" parallel="methods" name="com.FirstTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="LocalTest.RunLocalTest.FirstTest">
+      <class name="LocalTest.RunLocalTest.MasterTest">
         <methods>
           <include name="tearDown"/>
           <include name="setupTest"/>
+          <include name="GOOGLE0"/>
           <include name="GOOGLE2"/>
         </methods>
-      </class> <!-- LocalTest.RunLocalTest.FirstTest -->
+      </class> <!-- LocalTest.RunLocalTest.MasterTest -->
     </classes>
   </test> <!-- com.FirstTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

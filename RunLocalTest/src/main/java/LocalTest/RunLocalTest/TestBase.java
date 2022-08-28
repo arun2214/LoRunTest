@@ -28,8 +28,9 @@ public class TestBase {
         //Set & Get ThreadLocal Driver with Browser
         TLDriverFactory.setTLDriver(browser);
        // wait = new WebDriverWait(TLDriverFactory.getTLDriver(), 15);
-       Thread.sleep(5000);
+       
        System.setProperty("webdriver.chrome.driver","C:\\Selenium Installation process\\chrome\\s\\chromedriver.exe");
+       Thread.sleep(5000);
        // int s=15 ;
 		//WebDriverWait wait = new WebDriverWait(TLDriverFactory.getTLDriver(),15);
     }
