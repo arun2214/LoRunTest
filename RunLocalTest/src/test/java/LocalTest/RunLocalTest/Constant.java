@@ -20,8 +20,8 @@ public class Constant {
 		   final static int TotalRowsNo = 0;
 		   
 		   static boolean TestCaseActive = false;
-		  // final static String Url= "https://opensource-demo.orangehrmlive.com/";
 		   final static String Url= "https://gmail.com";
+		  // final static String Url= "https://gmail.com";
 	
 
 }

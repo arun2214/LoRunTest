@@ -10,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 
 
 public class Login {
-	static By userName1 = By.name("username");
+	//static By userName1 = By.name("username");
+	//static By passWord = By.name("password");
+	static By userName1 = By.name("identifier");
 	static By passWord = By.name("password");
 	static By cLickLogin =By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button");	
     
