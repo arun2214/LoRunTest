@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
+
+import org.apache.poi.ss.formula.functions.Column;
+import org.apache.poi.ss.formula.functions.Columns;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -212,39 +215,41 @@ public class Data_Utility extends Constant {
 
 			ExcelWSheet = ExcelWBook.getSheet(SheetName);
 			
-			// Open the Excel file
-			//Test Case identification from TestData sheet
-			 int i = 0;
-			 int j = 0;
-					
-			 Data_Utility.TotalActiveRows(Constant.Path_TestData + Constant.File_TestData, SheetName);
-		     int TCCountTestDataSheet =  Data_Utility.GetTestCaseCount();	
-		     
-			 Data_Utility.setExcelFile(Constant.Path_TestData + Constant.File_TestData, SheetName);
-			 //TestData_dict=null;
 			 Hashtable<String, String> TestData_dict = new Hashtable<String, String>();
 			 int noOfColumns = ExcelWSheet.getRow(0).getLastCellNum();
 			 
-			 for ( i=1; i<=TCCountTestDataSheet; i++)
-			 {
-				 String TCfromTD = Data_Utility.getCellData(i, 1).toString();
-				 
-					 if(TestCaseName.equals(TCfromTD))
-						 
-						 for ( j=1; j<=noOfColumns-2; j++)
-						 {
-							 {
-								 String CellValue= Data_Utility.getCellData(i, j+1);
-								 String ColName= Data_Utility.getCellData(0, j+1);
-								 TestData_dict.put(ColName,CellValue); 
-								
-							 }
-						 }
-			 } 
+			 int rows = ExcelWSheet.getLastRowNum();
+		        int cols= ExcelWSheet.getRow(1).getLastCellNum();
+		        
+		        for(int r=0; r<rows; r++) {
+		            
+		            XSSFRow row=ExcelWSheet.getRow(r);
+		            XSSFRow FirstRow=ExcelWSheet.getRow(0);
+		            String TCfromTD = Data_Utility.getCellData(r, 1).toString();
+		            if(TestCaseName.equals(TCfromTD))
+			            for(int c=0; c< cols; c++) {
+			                
+			                XSSFCell cell=row.getCell(c);
+			                
+			                XSSFCell ColName=FirstRow.getCell(c);
+			              
+			                
+			                TestData_dict.put(ColName.toString(),cell.toString());
+			                
+			                switch(cell.getCellType())
+			                {
+			                case STRING: System.out.println(cell.getStringCellValue()); break;
+			                case NUMERIC: System.out.println(cell.getNumericCellValue()); break;
+			                case BOOLEAN: System.out.println(cell.getBooleanCellValue()); break;
+			                
+			                }
+		            }
+		                
+		            }
+			 
 			 
 			 Data_Utility.setObjDict(TestData_dict);
 			 return TestData_dict;
-		//	 System.out.println(TestData_dict.get("UserName"));
 		
 		
 		} catch (Exception e){
