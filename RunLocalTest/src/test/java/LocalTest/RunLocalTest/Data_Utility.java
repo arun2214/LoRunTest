@@ -214,25 +214,28 @@ public class Data_Utility extends Constant {
 			
 			// Open the Excel file
 			//Test Case identification from TestData sheet
+			 int i = 0;
+			 int j = 0;
+					
 			 Data_Utility.TotalActiveRows(Constant.Path_TestData + Constant.File_TestData, SheetName);
 		     int TCCountTestDataSheet =  Data_Utility.GetTestCaseCount();	
 		     
 			 Data_Utility.setExcelFile(Constant.Path_TestData + Constant.File_TestData, SheetName);
+			 //TestData_dict=null;
 			 Hashtable<String, String> TestData_dict = new Hashtable<String, String>();
 			 int noOfColumns = ExcelWSheet.getRow(0).getLastCellNum();
 			 
-			 for (int i=1; i<=TCCountTestDataSheet; i++)
+			 for ( i=1; i<=TCCountTestDataSheet; i++)
 			 {
 				 String TCfromTD = Data_Utility.getCellData(i, 1).toString();
 				 
 					 if(TestCaseName.equals(TCfromTD))
 						 
-						 for (int j=1; j<=noOfColumns-2; j++)
+						 for ( j=1; j<=noOfColumns-2; j++)
 						 {
 							 {
 								 String CellValue= Data_Utility.getCellData(i, j+1);
 								 String ColName= Data_Utility.getCellData(0, j+1);
-								 		
 								 TestData_dict.put(ColName,CellValue); 
 								
 							 }

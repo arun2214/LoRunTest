@@ -2,9 +2,7 @@ package LocalTest.RunLocalTest;
 
 //import static org.testng.Assert.assertTrue;
 import org.testng.Assert;
-
 import static org.testng.Assert.assertTrue;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

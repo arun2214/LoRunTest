@@ -39,7 +39,7 @@ public class Listners extends TestBase implements ITestListener {
 		//WebDriver driver = TLDriverFactory.getTLDriver();
 		WebDriver driver=TLDriverFactory.getTLDriver();
 		 
-		extentTest.get().log(Status.FAIL, "This test fAILED");
+		extentTest.get().log(Status.FAIL, "This test Failed");
 		
 		Object testObject = result.getInstance();
 		Class cls= result.getTestClass().getRealClass();
