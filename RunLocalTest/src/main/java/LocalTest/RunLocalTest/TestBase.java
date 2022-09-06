@@ -30,6 +30,7 @@ public class TestBase {
        
        System.setProperty("webdriver.chrome.driver","C:\\Selenium Installation process\\chrome\\s\\chromedriver.exe");
        Thread.sleep(5000);
+       OptionsManager.getChromeOptions();
        // int s=15 ;
 		//WebDriverWait wait = new WebDriverWait(TLDriverFactory.getTLDriver(),15);
     }

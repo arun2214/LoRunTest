@@ -216,7 +216,7 @@ public class Data_Utility extends Constant {
 			ExcelWSheet = ExcelWBook.getSheet(SheetName);
 			
 			 Hashtable<String, String> TestData_dict = new Hashtable<String, String>();
-			 int noOfColumns = ExcelWSheet.getRow(0).getLastCellNum();
+			 //int noOfColumns = ExcelWSheet.getRow(0).getLastCellNum();
 			 
 			 int rows = ExcelWSheet.getLastRowNum();
 		        int cols= ExcelWSheet.getRow(1).getLastCellNum();
